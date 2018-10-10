@@ -1,0 +1,6 @@
+{
+    "require": {
+        "mongodb/mongodb": "^1.4",
+        "elasticsearch/elasticsearch": "^6.0"
+    }
+}
