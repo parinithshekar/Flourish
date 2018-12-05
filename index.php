@@ -30,7 +30,7 @@ session_start();
         <h1 class="text-center" style="height:66px;color:#f4476b;font-family:Adamina, serif;">Flourish</h1>
         <form method="post" action="login.php">
             <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="icon ion-ribbon-b"></i></div>
+            <div class="illustration"><img style="width:100%;height:100%" class="img-responsive" src="Flourish.jpg" ></div>
             <div class="form-group"><input class="form-control" type="text" name="auth_id" placeholder="Author ID"></div>
             <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div>

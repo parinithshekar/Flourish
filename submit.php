@@ -74,7 +74,8 @@ session_start();
                     <small
                         class="form-text text-muted">Keywords seperated by commas</small><input class="form-control" type="text" name="keywords" required="" placeholder="Keywords" style="margin:17px;"><input class="form-control" type="text" name="eid" required="" placeholder="EID" style="margin:17px;">
                         <input
-                            class="form-control" type="text" name="doi" required="" placeholder="DOI Number" style="margin:17px;"><small class="form-text text-muted">Upload PDF file</small><input name='paper_file' type="file"></div>
+                            class="form-control" type="text" name="doi" required="" placeholder="DOI Number" style="margin:17px;"><small class="form-text text-muted">Upload PDF file</small><input type="file" name="paper_file" id="fileToUpload"></div>
+
                 <div class="form-group flex-column" style="margin:38px;">
                     <div class="intro">
                         <h2 class="text-center">Journal/Conference</h2>
@@ -84,7 +85,8 @@ session_start();
                         name="issue" required="" placeholder="Issue Number" min="0" step="1" style="margin:17px;"><input class="form-control" type="number" name="impactfactor" required="" placeholder="Impact Factor" min="0" step="0.1" style="margin:17px;">
                     <input
                         class="form-control" type="number" name="citescore" required="" placeholder="Cite Score" min="0" step="1" style="margin:17px;"><small class="form-text text-muted">Date of publication</small><input class="form-control" type="date" name="date" required="" style="margin:17px;"><input class="form-control" type="text" name="issn" required="" placeholder="ISSN"
-                            style="margin:17px;"><input class="form-control" type="text" name="isbn" required="" placeholder="ISBN" style="margin:17px;"><small class="form-text text-muted">Location only for Conference</small><input class="form-control" type="text"
+                            style="margin:17px;"><input class="form-control" type="text" name="isbn" required="" placeholder="ISBN" style="margin:17px;">
+                    <small class="form-text text-muted" disable>Location only for Conference</small><input class="form-control" type="text"
                             name="location" placeholder="Location of Conference" style="margin:17px;"></div><button class="btn btn-primary btn-block" type="submit" style="background-color:#f4476b;height:45px;margin:16px;font-size:20px;">Submit</button></form>
         </div>
     </div>

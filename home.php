@@ -66,6 +66,23 @@ echo $_SESSION["Admin"];
 
         </div>
     </div>
+      <div class="container">
+            <div class="row" style="width:1500px;height:37px;margin:15px;padding:-68px;">
+                <div class="col-md-2">
+                    <p> <?php echo $title;?></p>
+                </div>
+                <div class="col-md-2">
+                    <p> <?php echo $name;?></p>
+                </div>
+                <div class="col-md-3">
+                    <?php   $i=0;
+                            foreach($alist as $s)
+                                {echo $s;
+                                 if($i!==(count($alist)-1))
+                                     echo ", ";
+                                 $i+=1;
+                                }?> 
+                </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>

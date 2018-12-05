@@ -38,4 +38,6 @@ if($success) {
         echo "Error:"."<br>".$sql."<br>".$link->error."<br>";
     }
 }
+header("Location:home.php");
+
 ?>

@@ -2,7 +2,6 @@
 session_start();
 require_once 'init.php';
 
-//echo var_dump($_POST);
 $params=[
     'index'=>'index',
     'type' =>'details',
@@ -14,7 +13,7 @@ $params=[
                 
             'multi_match'=>[
                 'query'=>$_POST['search'],
-                'fields'=>['title','abstract','keywords','journal','authors']
+                'fields'=>['title','abstract','keywords','journal','authors','eid']
             ]
             //'match' =>['title'=>$_POST['search']],
             //'match' =>['abstract'=>$_POST['search']],
@@ -26,10 +25,7 @@ $params=[
 ]   
 ];
 
-    
 $response=$client->search($params);
-
-//print_r($response);
 $result=$response['hits']['hits'];
 
 ?>
@@ -83,8 +79,9 @@ $result=$response['hits']['hits'];
     <div class="col-lg-12">
           <h2>Showing results for "<?php echo $_POST["search"]?>"</h2>
                 </div>
+    <?php if($response!==NULL):?>
  <div class="container">
-            <div class="row" style="width:1500px;height:37px;margin:24px;padding:-68px;">
+            <div class="row" style="width:1500px;height:37px;margin:55px;padding:-68px;">
                 <div class="col-md-2">
                       <h3>Paper</h3>
                 </div>
@@ -94,6 +91,9 @@ $result=$response['hits']['hits'];
                 <div class="col-md-3">
                       <h3>Authors</h3> 
                 </div>
+                 <div class="col-md-3">
+                      <h2>Download link</h2>
+                </div>
                 <!--<div class="col-md-3">
                       <h2>Keywords</h2>
                 </div>
@@ -102,10 +102,9 @@ $result=$response['hits']['hits'];
                 </div>-->
             </div>
         </div>
-    
      <?php foreach($result as $r):?>
      <div class="container">
-            <div class="row" style="width:1500px;height:37px;margin:15px;padding:-68px;">
+            <div class="row" style="width:1500px;height:37px;margin:55px;padding:-68px;">
                 <div class="col-md-2">
                     <p> <?php echo $r[_source]['title'];?></p>
                 </div>
@@ -121,9 +120,13 @@ $result=$response['hits']['hits'];
                                  $i+=1;
                                 }?> 
                 </div>
-                <!--<div class="col-md-3">
-                      <h2>Keywords</h2>
+                <div class="col-md-3">
+                      <p> <a href= <?php echo "download.php?objid=".$r[_source]['objectID']."&pname=".$r[_source]['fileName']; ?> target="_blank"><?php echo $r[_source]['fileName']; ?> </a></p>
                 </div>
+                <!--<div class="col-md-3">
+                      <p href="#">click here //add href to download script</p>
+                </div>-->
+               
              <!--   <div class="col-md-2">
                      <h2>Heading</h2>
                 </div>-->
@@ -131,9 +134,13 @@ $result=$response['hits']['hits'];
         </div>
      <?php endforeach;?>
     
-
+ 
     </div>    
     </div>
+      <?php endif;
+
+    ?>
+
 
   
     <script src="assets/js/jquery.min.js"></script>
